@@ -24,6 +24,7 @@ setup(name='raptus.article.contentswitcher',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'raptus.inlinelightbox>=1.0b3',
           'raptus.article.nesting',
           'raptus.article.teaser',
           # -*- Extra requirements: -*-
