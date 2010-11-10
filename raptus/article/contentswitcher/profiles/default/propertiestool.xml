@@ -20,6 +20,8 @@
     showButtons: false,
     fixedWidth: 650,
     fixedHeight: 250,
+    initialWidth: 650,
+    initialHeight: 250,
     linkSelector: '.caption h2 a',
     effectSpeed: 400,
     contentswitcher: {
@@ -43,6 +45,8 @@
     showButtons: false,
     fixedWidth: 1024,
     fixedHeight: 250,
+    initialWidth: 1024,
+    initialHeight: 250,
     linkSelector: '.caption h2 a',
     effectSpeed: 400,
     contentswitcher: {

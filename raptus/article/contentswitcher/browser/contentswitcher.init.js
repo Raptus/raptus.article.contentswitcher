@@ -40,11 +40,9 @@
         $.proxy(function(e) {
           this.playTimeout = this._playTimeout;
           if(this.playTimeout) {
-            this.timer = setTimeout(function(args) {
-              parent = args[0];
-              settings = args[1];
-              $(settings.matchedObjects.get((settings.activeImage+1) % settings.matchedObjects.size())).click();
-            }, this.playTimeout, [$(e.currentTarget), this]);
+            this.timer = setTimeout($.proxy(function() {
+              $(this.settings.matchedObjects.get((this.settings.activeImage+1) % this.settings.matchedObjects.size())).click();
+            }, {parent: $(e.currentTarget), settings: this}), this.playTimeout);
           }
           $(e.currentTarget).find('.lightbox-contentswitcher-nav').removeClass('over');
           $(e.currentTarget).find('.lightbox-contentswitcher-nav > li:not(.current)').fadeTo(this.contentswitcher.fadeSpeed, this.contentswitcher.baseOpacity);
@@ -56,7 +54,7 @@
       var over = $(params.parent).find('.lightbox-contentswitcher-nav').hasClass('over');
       $(params.parent).find('.lightbox-contentswitcher-nav > li').removeClass('current').fadeTo(params.settings.contentswitcher.fadeSpeed, over ? params.settings.contentswitcher.overOpacity : params.settings.contentswitcher.baseOpacity);
       $(params.parent).find('.lightbox-contentswitcher-nav > li:eq('+params.settings.activeImage+')').addClass('current').fadeTo(params.settings.contentswitcher.fadeSpeed, over ? params.settings.contentswitcher.overCurrentOpacity : params.settings.contentswitcher.currentOpacity);
-    },
+    }
   }
   
   $(document).ready(function() {
