@@ -25,10 +25,12 @@
     linkSelector: '.caption h2 a',
     effectSpeed: 400,
     contentswitcher: {
-      baseOpacity: 0,
-      currentOpacity: 1,
-      overOpacity: 0.7,
-      overCurrentOpacity: 1,
+      styles: {
+        base: {opacity: 0},
+        current: {opacity: 1},
+        over: {opacity: 0.7},
+        overCurrent: {opacity: 1},
+      },
       fadeSpeed: 400,
       orientation: 'vertical',
       position: 'right'
@@ -50,10 +52,12 @@
     linkSelector: '.caption h2 a',
     effectSpeed: 400,
     contentswitcher: {
-      baseOpacity: 0,
-      currentOpacity: 1,
-      overOpacity: 0.7,
-      overCurrentOpacity: 1,
+      styles: {
+        base: {opacity: 0},
+        current: {opacity: 1},
+        over: {opacity: 0.7},
+        overCurrent: {opacity: 1},
+      },
       fadeSpeed: 400,
       orientation: 'vertical',
       position: 'right'

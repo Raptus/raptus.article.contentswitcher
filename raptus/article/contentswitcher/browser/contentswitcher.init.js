@@ -34,8 +34,8 @@
           this._playTimeout = this.playTimeout;
           this.playTimeout = false;
           $(e.currentTarget).find('.lightbox-contentswitcher-nav').addClass('over');
-          $(e.currentTarget).find('.lightbox-contentswitcher-nav > li:not(.current)').fadeTo(this.contentswitcher.fadeSpeed, this.contentswitcher.overOpacity);
-          $(e.currentTarget).find('.lightbox-contentswitcher-nav > li.current').fadeTo(this.contentswitcher.fadeSpeed, this.contentswitcher.overCurrentOpacity);
+          $(e.currentTarget).find('.lightbox-contentswitcher-nav > li:not(.current)').stop().animate(this.contentswitcher.styles.over, this.contentswitcher.fadeSpeed);
+          $(e.currentTarget).find('.lightbox-contentswitcher-nav > li.current').stop().animate(this.contentswitcher.styles.overCurrent, this.contentswitcher.fadeSpeed);
         }, params.settings), 
         $.proxy(function(e) {
           this.playTimeout = this._playTimeout;
@@ -45,15 +45,15 @@
             }, {parent: $(e.currentTarget), settings: this}), this.playTimeout);
           }
           $(e.currentTarget).find('.lightbox-contentswitcher-nav').removeClass('over');
-          $(e.currentTarget).find('.lightbox-contentswitcher-nav > li:not(.current)').fadeTo(this.contentswitcher.fadeSpeed, this.contentswitcher.baseOpacity);
-          $(e.currentTarget).find('.lightbox-contentswitcher-nav > li.current').fadeTo(this.contentswitcher.fadeSpeed, this.contentswitcher.currentOpacity);
+          $(e.currentTarget).find('.lightbox-contentswitcher-nav > li:not(.current)').stop().animate(this.contentswitcher.styles.base, this.contentswitcher.fadeSpeed);
+          $(e.currentTarget).find('.lightbox-contentswitcher-nav > li.current').stop().animate(this.contentswitcher.styles.current, this.contentswitcher.fadeSpeed);
         }, params.settings)
       );
     },
     preSetImageToView: function(params) {
       var over = $(params.parent).find('.lightbox-contentswitcher-nav').hasClass('over');
-      $(params.parent).find('.lightbox-contentswitcher-nav > li').removeClass('current').fadeTo(params.settings.contentswitcher.fadeSpeed, over ? params.settings.contentswitcher.overOpacity : params.settings.contentswitcher.baseOpacity);
-      $(params.parent).find('.lightbox-contentswitcher-nav > li:eq('+params.settings.activeImage+')').addClass('current').fadeTo(params.settings.contentswitcher.fadeSpeed, over ? params.settings.contentswitcher.overCurrentOpacity : params.settings.contentswitcher.currentOpacity);
+      $(params.parent).find('.lightbox-contentswitcher-nav > li').removeClass('current').stop().animate(over ? params.settings.contentswitcher.styles.over : params.settings.contentswitcher.styles.base, this.contentswitcher.fadeSpeed);
+      $(params.parent).find('.lightbox-contentswitcher-nav > li:eq('+params.settings.activeImage+')').addClass('current').stop().animate(over ? params.settings.contentswitcher.styles.overCurrent : params.settings.contentswitcher.styles.current, this.contentswitcher.fadeSpeed);
     }
   }
   
