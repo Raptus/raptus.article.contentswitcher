@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.0a3 - (2010-11-29)
+--------------------
+
+* Replaced the component images by more suitable ones
+
 1.0a2 - (2010-11-23)
 --------------------
 
