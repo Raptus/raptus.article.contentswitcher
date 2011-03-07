@@ -1,6 +1,12 @@
 Changelog
 =========
 
+1.0b1 - (2011-03-07)
+--------------------
+
+* Added manage links for sorting, editing, deleting and viewing the displayed articles
+* Fixed configuration error resulting in a javascript error in IE
+
 1.0a3 - (2010-11-29)
 --------------------
 

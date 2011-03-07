@@ -1,7 +1,7 @@
 (function($) {
   var contentswitcher = {
     postSetInterface: function(params) {
-      $(params.parent).find('.lightbox-container-image').prepend('<ul class="lightbox-contentswitcher-nav visualNoMarker '+params.settings.contentswitcher.orientation+' '+params.settings.contentswitcher.position+'"></ul>');
+      $(params.parent).find('.lightbox-container-image').prepend('<ul class="lightbox-contentswitcher-nav visualNoMarker manageableList '+params.settings.contentswitcher.orientation+' '+params.settings.contentswitcher.position+'"></ul>');
       var nav = $(params.parent).find('.lightbox-contentswitcher-nav');
       if(params.settings.contentswitcher.orientation == 'horizontal')
         var width = Math.min((params.settings.fixedWidth-(params.settings.matchedObjects.size()-1))/params.settings.matchedObjects.size());
@@ -9,7 +9,9 @@
         var height = Math.min((params.settings.fixedHeight-(params.settings.matchedObjects.size()-1))/params.settings.matchedObjects.size());
       for(var i=0; i<params.settings.matchedObjects.size(); i++) {
         var obj = $(params.settings.matchedObjects.get(i));
-        nav.append('<li class="o'+i+'"><a href="'+obj.find('h2 > a').attr('href')+'" title="'+obj.find('p').html()+'">'+obj.find('h2 > a').html()+'</a></li>');
+        var manage = obj.find('h2 > .manage').html();
+        if(manage) manage = '<div class="manage">'+manage+'</span>';
+        nav.append('<li class="o'+i+'"><a href="'+obj.find('h2 > a').attr('href')+'" title="'+obj.find('p').html()+'">'+obj.find('h2 > a').html()+'</a>'+manage+'</li>');
         nav.find('li:last').fadeTo(0, params.settings.contentswitcher.baseOpacity);
         if(params.settings.contentswitcher.orientation == 'horizontal')
           nav.find('li:last').css('width', width+'px');

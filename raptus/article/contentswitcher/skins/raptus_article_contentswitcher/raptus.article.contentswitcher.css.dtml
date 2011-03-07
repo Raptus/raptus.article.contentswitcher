@@ -27,6 +27,13 @@ ul.lightbox-contentswitcher-nav li a,
   border-bottom:none;
 }
 
+ul.lightbox-contentswitcher-nav li .manage a,
+#content ul.lightbox-contentswitcher-nav li .manage a {
+  padding:0;
+  display:inline;
+  height:auto;
+}
+
 ul.lightbox-contentswitcher-nav.horizontal,
 #content ul.lightbox-contentswitcher-nav.horizontal {
   right:auto;

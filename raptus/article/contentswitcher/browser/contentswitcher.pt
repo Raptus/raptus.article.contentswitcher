@@ -18,8 +18,8 @@
           </a>
         </div>
         <div class="caption">
-          <metal:manage use-macro="context/raptus_article_macros/macros/manage" />
           <h2>
+            <metal:manage use-macro="context/raptus_article_macros/macros/manage" />
             <a href=""
                tal:omit-tag="not: item/url"
                tal:attributes="href item/url"
