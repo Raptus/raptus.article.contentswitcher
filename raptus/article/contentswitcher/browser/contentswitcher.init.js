@@ -11,7 +11,7 @@
         var obj = $(params.settings.matchedObjects.get(i));
         var manage = obj.find('h2 > .manage').size() ? obj.find('h2 > .manage').html() : '';
         if(manage) manage = '<div class="manage">'+manage+'</span>';
-        nav.append('<li class="o'+i+'"><a href="'+obj.find('h2 > a').attr('href')+'" title="'+obj.find('p').html()+'">'+obj.find('h2 > a').html()+'</a>'+manage+'</li>');
+        nav.append('<li class="o'+i+'"><a href="'+obj.find('h2 > a').attr('href')+'" title="'+(obj.find('p').size() ? obj.find('p').html() : '')+'">'+obj.find('h2 > a').html()+'</a>'+manage+'</li>');
         nav.find('li:last').fadeTo(0, params.settings.contentswitcher.baseOpacity);
         if(params.settings.contentswitcher.orientation == 'horizontal')
           nav.find('li:last').css('width', width+'px');
