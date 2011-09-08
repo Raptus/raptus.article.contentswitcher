@@ -22,7 +22,7 @@
     fixedHeight: 250,
     initialWidth: 650,
     initialHeight: 250,
-    linkSelector: '.caption h2 a',
+    linkSelector: '.caption h2 > a',
     effectSpeed: 400,
     contentswitcher: {
       styles: {

@@ -1,6 +1,8 @@
 (function($) {
   var contentswitcher = {
     postSetInterface: function(params) {
+      if(params.settings.matchedObjects.size() < 2)
+        return;
       $(params.parent).find('.lightbox-container-image').prepend('<ul class="lightbox-contentswitcher-nav visualNoMarker manageableList '+params.settings.contentswitcher.orientation+' '+params.settings.contentswitcher.position+'"></ul>');
       var nav = $(params.parent).find('.lightbox-contentswitcher-nav');
       if(params.settings.contentswitcher.orientation == 'horizontal')
@@ -11,7 +13,10 @@
         var obj = $(params.settings.matchedObjects.get(i));
         var manage = obj.find('h2 > .manage').size() ? obj.find('h2 > .manage').html() : '';
         if(manage) manage = '<div class="manage">'+manage+'</span>';
-        nav.append('<li class="o'+i+'"><a href="'+obj.find('h2 > a').attr('href')+'" title="'+(obj.find('p').size() ? obj.find('p').html() : '')+'">'+obj.find('h2 > a').html()+'</a>'+manage+'</li>');
+        var href = obj.find('h2 > a').attr('href');
+        href = (href != undefined) ? ' href="'+href+'"' : '';
+        var title = obj.find('h2 > a').size() ? obj.find('h2 > a').html() : obj.find('h2 > span').html();
+        nav.append('<li class="o'+i+'"><a'+href+' title="'+(obj.find('p').size() ? obj.find('p').html() : '')+'">'+title+'</a>'+manage+'</li>');
         nav.find('li:last').fadeTo(0, params.settings.contentswitcher.baseOpacity);
         if(params.settings.contentswitcher.orientation == 'horizontal')
           nav.find('li:last').css('width', width+'px');
@@ -53,6 +58,8 @@
       );
     },
     preSetImageToView: function(params) {
+      if(params.settings.matchedObjects.size() < 2)
+        return;
       var over = $(params.parent).find('.lightbox-contentswitcher-nav').hasClass('over');
       $(params.parent).find('.lightbox-contentswitcher-nav > li').removeClass('current').stop().animate(over ? params.settings.contentswitcher.styles.over : params.settings.contentswitcher.styles.base, this.contentswitcher.fadeSpeed);
       $(params.parent).find('.lightbox-contentswitcher-nav > li:eq('+params.settings.activeImage+')').addClass('current').stop().animate(over ? params.settings.contentswitcher.styles.overCurrent : params.settings.contentswitcher.styles.current, this.contentswitcher.fadeSpeed);
