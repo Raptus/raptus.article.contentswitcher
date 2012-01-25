@@ -28,6 +28,7 @@ ul.lightbox-contentswitcher-nav li a,
   border-bottom:none;
 }
 
+.contentswitcher .manage-standalone a,
 ul.lightbox-contentswitcher-nav li .manage a,
 #content ul.lightbox-contentswitcher-nav li .manage a {
   padding:0;

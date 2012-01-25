@@ -1,8 +1,15 @@
 (function($) {
   var contentswitcher = {
     postSetInterface: function(params) {
-      if(params.settings.matchedObjects.size() < 2)
+      if(params.settings.matchedObjects.size() < 2) {
+        if(params.settings.matchedObjects.size() == 1) {
+          var obj = $(params.settings.matchedObjects.get(0));
+          var manage = obj.find('h2 > .manage').size() ? obj.find('h2 > .manage').html() : '';
+          if(manage) manage = '<div class="manage manage-standalone">'+manage+'</div>';
+          $(params.parent).find('.lightbox-container-image').prepend(manage);
+        }
         return;
+      }
       $(params.parent).find('.lightbox-container-image').prepend('<ul class="lightbox-contentswitcher-nav visualNoMarker manageableList '+params.settings.contentswitcher.orientation+' '+params.settings.contentswitcher.position+'"></ul>');
       var nav = $(params.parent).find('.lightbox-contentswitcher-nav');
       if(params.settings.contentswitcher.orientation == 'horizontal')
@@ -12,7 +19,7 @@
       for(var i=0; i<params.settings.matchedObjects.size(); i++) {
         var obj = $(params.settings.matchedObjects.get(i));
         var manage = obj.find('h2 > .manage').size() ? obj.find('h2 > .manage').html() : '';
-        if(manage) manage = '<div class="manage">'+manage+'</span>';
+        if(manage) manage = '<div class="manage">'+manage+'</div>';
         var href = obj.find('h2 > a').attr('href');
         href = (href != undefined) ? ' href="'+href+'"' : '';
         var title = obj.find('h2 > a').size() ? obj.find('h2 > a').html() : obj.find('h2 > span').html();

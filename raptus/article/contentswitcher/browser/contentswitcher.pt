@@ -5,7 +5,7 @@
       tal:omit-tag="">
   <div class="inlinelightbox contentswitcher componentFull"
        i18n:domain="raptus.article"
-       tal:attributes="class string:inlinelightbox contentswitcher componentFull ${view/css_class}"
+       tal:attributes="class string:inlinelightbox contentswitcher component ${view/css_class}"
        tal:condition="view/articles">
     <ul class="visualNoMarker">
       <tal:item repeat="item view/articles">
