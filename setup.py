@@ -6,7 +6,7 @@ version = '1.0b5'
 setup(name='raptus.article.contentswitcher',
       version=version,
       description="Provides a jQuery based content switcher",
-      long_description=open("README.txt").read() + "\n" +
+      long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "MANUAL.txt")).read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
@@ -17,7 +17,7 @@ setup(name='raptus.article.contentswitcher',
       keywords='',
       author='Raptus AG',
       author_email='dev@raptus.com',
-      url='https://svn.plone.org/svn/collective/raptus.article/raptus.article.contentswitcher',
+      url='https://github.com/Raptus/raptus.article.contentswitcher',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['raptus', 'raptus.article'],
